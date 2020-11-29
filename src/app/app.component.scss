@@ -1,0 +1,51 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+::ng-deep .mat-drawer {
+  padding: 20px;
+}
+
+.sidenav-content {
+  display: flex;
+
+  router-outlet {
+    display: none;
+  }
+}
+
+.toolbar-row {
+  padding-right: 20px;
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__links {
+    margin-right: 20px;
+
+    a {
+      margin-left: 56px;
+      color: #fea18d;
+      text-decoration: none;
+      background-repeat: no-repeat;
+      background-position: left;
+    }
+
+    &__header-github {
+      padding-left: 30px;
+      background-image: url("../assets/images/toolbar/icon-github.svg");
+    }
+
+    &__header-email {
+      padding-left: 30px;
+      background-image: url("../assets/images/toolbar/icon-email.svg");
+    }
+
+    &__header-phone {
+      padding-left: 30px;
+      background-image: url("../assets/images/toolbar/icon-phone.svg");
+    }
+  }
+}

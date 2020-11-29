@@ -1,0 +1,50 @@
+<div class="l-flex-column__item-fixed l-flex">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row class="toolbar-row">
+            <button mat-icon-button aria-label="Button with menu icon"
+                    (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <button class="toolbar-row__title" mat-button [routerLink]="['/intro1']">Image Enhancement</button>
+
+            <div class="toolbar-row__links l-flex__item l-flex l-flex--justify-end">
+                <a class="toolbar-row__links__header-github"
+                   href="https://github.com/pahazavr">GitHub</a>
+                <a class="toolbar-row__links__header-email"
+                   href="mailto:palmin.dev@gmail.com">palmin.dev@gmail.com</a>
+                <a class="toolbar-row__links__header-phone"
+                   href="tel:+79819728782">+7 981 972 87 82</a>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>
+
+<mat-sidenav-container class="project-side-menu l-flex-column__item l-flex">
+    <mat-sidenav #sidenav class="l-flex-column__item-fixed">
+
+        <mat-tree [dataSource]="menuDataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                <button mat-button (click)="menuItemClick(node.routerLink)">
+                    <mat-icon>
+                        info
+                    </mat-icon>
+                    {{node.name}}
+                </button>
+            </mat-tree-node>
+
+            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                    <mat-icon>
+                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                </button>
+                {{node.name}}
+            </mat-tree-node>
+        </mat-tree>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content l-flex-column__item l-flex-column">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

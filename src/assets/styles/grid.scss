@@ -1,0 +1,84 @@
+/* #GRIDS
+------------------------------------------- */
+//===========================================
+// # FLEX GRID
+//===========================================
+
+// [ Mode ] Row flex grid
+//------------------------------------------
+.l-flex {
+  display: flex;
+}
+
+.l-flex__item {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 1%;
+}
+
+// Item with fixed width
+.l-flex__item-fixed {
+  flex-shrink: 0;
+}
+
+// [ Mode ] Column flex grid
+//------------------------------------------
+.l-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.l-flex-column__item {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  height: 1%;
+}
+
+// Item with fixed height
+.l-flex-column__item-fixed {
+  flex-shrink: 0;
+}
+
+// [ Mode ] align center
+//------------------------------------------
+.l-flex--align-center {
+  align-items: center;
+}
+
+// [ Mode ] align baseline
+//------------------------------------------
+.l-flex--align-baseline {
+  align-items: baseline;
+}
+
+// [ Mode ] align start
+//------------------------------------------
+.l-flex--align-start {
+  align-items: flex-start;
+}
+
+// [ Mode ] align end
+//------------------------------------------
+.l-flex--align-end {
+  align-items: flex-end;
+}
+
+// [ Mode ] space between
+//------------------------------------------
+.l-flex--space-between {
+  justify-content: space-between;
+}
+
+// [ Mode ] justify content center
+//------------------------------------------
+.l-flex--justify-center {
+  justify-content: center;
+}
+
+// [ Mode ] justify content end
+//------------------------------------------
+.l-flex--justify-end {
+  justify-content: flex-end;
+}

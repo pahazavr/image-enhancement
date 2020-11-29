@@ -1,0 +1,67 @@
+.container {
+  width: 80%;
+  height: fit-content;
+  text-align: center;
+  margin: 1% auto auto;
+  box-shadow: 0 0 20px 5px #000000, 0 0 0 16px rgba(255,255,255,.98);
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.page-title {
+  margin: 20px;
+  font-size: 3.5rem;
+  line-height: 1.17;
+}
+
+.content {
+  width: 90%;
+  margin: auto;
+
+  &__title {
+    text-align: left;
+    font-size: 2.1rem;
+    line-height: 1.17;
+
+    &__line {
+      background-color: #429ed7;
+      max-width: 50px;
+      width: 100%;
+      height: 3px;
+      display: block;
+    }
+  }
+
+  &__body {
+    text-align: left;
+    font-size: 1.3rem;
+    line-height: 1.55;
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-weight: 300;
+
+    &__items {
+      align-items: center;
+      line-height: 1.17;
+    }
+  }
+
+  &__card {
+    margin: 20px;
+
+    mat-card-header {
+      text-align: left;
+    }
+
+    &__title {
+      font-size: 1.3rem;
+    }
+
+    &__subtitle {
+      font-size: 1.2rem;
+    }
+
+    &__info {
+
+    }
+  }
+}

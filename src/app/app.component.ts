@@ -1,32 +1,73 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {FlatTreeControl} from "@angular/cdk/tree";
+import {MatTreeFlatDataSource, MatTreeFlattener} from "@angular/material/tree";
+import {Router} from "@angular/router";
+
+interface MenuNode {
+    name: string;
+    routerLink?: string;
+    children?: MenuNode[];
+}
+
+const MENU_DATA: MenuNode[] = [
+    {
+        name: 'Введение',
+        children: [
+            {
+                name: 'Распознавание образов нейронными сетями',
+                routerLink: '/intro1',
+            },
+            {
+                name: 'Архитектуры нейросетей',
+                routerLink: '/intro2',
+            },
+        ]
+    },
+];
+
+interface MenuFlatNode {
+    expandable: boolean;
+    routerLink: string;
+    name: string;
+    level: number;
+}
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <span style="display: block">{{ title }} app is running!</span>
-      <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-    </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    <router-outlet></router-outlet>
-  `,
-  styles: []
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    host: {
+        class: 'l-flex-column',
+    },
 })
 export class AppComponent {
-  title = 'image-enchancement';
+    @ViewChild('sidenav', { static: true }) sidenav: any;
+
+    private _transformer = (node: MenuNode, level: number) => {
+        return {
+            expandable: !!node.children && node.children.length > 0,
+            routerLink: node.routerLink,
+            name: node.name,
+            level: level,
+        };
+    }
+
+    treeControl = new FlatTreeControl<MenuFlatNode>(node => node.level, node => node.expandable);
+
+    treeFlattener = new MatTreeFlattener(
+        this._transformer, node => node.level, node => node.expandable, node => node.children);
+
+    menuDataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+
+    constructor(private _router: Router) {
+        this.menuDataSource.data = MENU_DATA;
+    }
+
+    hasChild = (_: number, node: MenuFlatNode) => node.expandable;
+
+    menuItemClick(routerLink: any): void {
+        this.sidenav.toggle();
+
+        this._router.navigate([routerLink]);
+    }
 }
