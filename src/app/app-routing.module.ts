@@ -7,6 +7,7 @@ import {Method2Component} from "./pages/methods/method2/method2.component";
 import {Method3Component} from "./pages/methods/method3/method3.component";
 import {Enhan1Component} from "./pages/enhancement/enhan1/enhan1.component";
 import {Enhan2Component} from "./pages/enhancement/enhan2/enhan2.component";
+import {ActualityComponent} from "./pages/actuality/actuality.component";
 
 const routes: Routes = [
     {
@@ -41,6 +42,10 @@ const routes: Routes = [
     {
         path: 'enhan2',
         component: Enhan2Component,
+    },
+    {
+        path: 'actuality',
+        component: ActualityComponent,
     },
 ];
 

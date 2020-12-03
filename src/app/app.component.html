@@ -1,5 +1,5 @@
 <div class="l-flex-column__item-fixed l-flex">
-    <mat-toolbar color="primary">
+    <mat-toolbar class="toolbar-row__background">
         <mat-toolbar-row class="toolbar-row">
             <button mat-icon-button aria-label="Button with menu icon"
                     (click)="sidenav.toggle()">
@@ -20,20 +20,20 @@
     </mat-toolbar>
 </div>
 
-<mat-sidenav-container class="project-side-menu l-flex-column__item l-flex">
+<mat-sidenav-container class="l-flex-column__item">
     <mat-sidenav #sidenav class="l-flex-column__item-fixed">
 
         <mat-tree [dataSource]="menuDataSource" [treeControl]="treeControl">
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+            <mat-tree-node class="side-menu-items" *matTreeNodeDef="let node" matTreeNodePadding>
                 <button mat-button (click)="menuItemClick(node.routerLink)">
                     <mat-icon>
-                        info
+                        play_arrow
                     </mat-icon>
                     {{node.name}}
                 </button>
             </mat-tree-node>
 
-            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+            <mat-tree-node class="side-menu-items" *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
                 <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
                     <mat-icon>
                         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}

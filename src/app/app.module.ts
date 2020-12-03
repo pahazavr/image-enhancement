@@ -13,11 +13,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {IntroductionModule} from "./pages/introduction/introduction.module";
 import {MethodsModule} from "./pages/methods/methods.module";
 import {EnhanModule} from "./pages/enhancement/enhan.module";
+import {ActualityComponent} from "./pages/actuality/actuality.component";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
     declarations: [
         AppComponent,
         TocComponent,
+        ActualityComponent
     ],
     exports: [
         MatSidenavModule,
@@ -35,6 +38,7 @@ import {EnhanModule} from "./pages/enhancement/enhan.module";
         IntroductionModule,
         MethodsModule,
         EnhanModule,
+        MatListModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

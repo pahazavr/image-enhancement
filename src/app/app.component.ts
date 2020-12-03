@@ -24,6 +24,10 @@ const MENU_DATA: MenuNode[] = [
         ]
     },
     {
+        name: 'Актуальность работы',
+        routerLink: '/actuality',
+    },
+    {
         name: 'Сервисы для повышения качества изображений',
         children: [
             {

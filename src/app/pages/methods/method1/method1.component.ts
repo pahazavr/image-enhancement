@@ -20,7 +20,8 @@ const ELEMENT_DATA: TableElement[] = [
     selector: 'app-introduction',
     templateUrl: './method1.component.html',
     styles: ['.column-title { width: 30%; }', '.column-description {  }',
-    '.mat-header-cell { font-size: 15px; text-align: center; color: #000; }', 'td.mat-cell { font-size: 14px; }'],
+    '.mat-header-cell { text-align: center; color: #000; font-size: 1.3rem; line-height: 1.55; font-family: "Open Sans", Arial, sans-serif; font-weight: 300; }',
+        'td.mat-cell { text-align: center; color: #000; font-size: 1.3rem; line-height: 1.55; font-family: "Open Sans", Arial, sans-serif; font-weight: 300; }'],
 })
 export class Method1Component implements OnInit {
 
