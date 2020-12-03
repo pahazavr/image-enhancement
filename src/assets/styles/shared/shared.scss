@@ -1,6 +1,7 @@
 .container {
   width: 80%;
   height: fit-content;
+  padding: 20px;
   text-align: center;
   margin: 1% auto auto;
   box-shadow: 0 0 20px 5px #000000, 0 0 0 16px rgba(255,255,255,.98);
@@ -64,4 +65,8 @@
 
     }
   }
+}
+
+table {
+  width: 100%;
 }

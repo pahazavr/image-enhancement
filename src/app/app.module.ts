@@ -11,6 +11,8 @@ import {TocComponent} from "./custom/toc/toc.component";
 import {MatTreeModule} from "@angular/material/tree";
 import {MatButtonModule} from "@angular/material/button";
 import {IntroductionModule} from "./pages/introduction/introduction.module";
+import {MethodsModule} from "./pages/methods/methods.module";
+import {EnhanModule} from "./pages/enhancement/enhan.module";
 
 @NgModule({
     declarations: [
@@ -30,7 +32,9 @@ import {IntroductionModule} from "./pages/introduction/introduction.module";
         MatIconModule,
         MatTreeModule,
         MatButtonModule,
-        IntroductionModule
+        IntroductionModule,
+        MethodsModule,
+        EnhanModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

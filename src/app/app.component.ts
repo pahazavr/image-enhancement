@@ -23,6 +23,36 @@ const MENU_DATA: MenuNode[] = [
             },
         ]
     },
+    {
+        name: 'Сервисы для повышения качества изображений',
+        children: [
+            {
+                name: 'Upscaler изображений',
+                routerLink: '/method1',
+            },
+            {
+                name: 'Photoshop',
+                routerLink: '/method2',
+            },
+            {
+                name: 'AI Image Enlarger',
+                routerLink: '/method3',
+            },
+        ]
+    },
+    {
+        name: 'Реставрация изображений',
+        children: [
+            {
+                name: 'Возможности нейросети',
+                routerLink: '/enhan1',
+            },
+            {
+                name: 'Реставрация фотографий с ИИ',
+                routerLink: '/enhan2',
+            },
+        ]
+    },
 ];
 
 interface MenuFlatNode {
